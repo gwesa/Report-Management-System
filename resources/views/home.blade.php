@@ -1,23 +1,10 @@
-@extends('layouts.app')
+@component('layouts.inc.basic_style')
+  @section('title','عنوان الصفحة ')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+  @slot('subject')
+    العنوان
+  @endslot
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+  التفاصيل
 
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+@endcomponent
