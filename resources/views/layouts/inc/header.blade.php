@@ -14,7 +14,7 @@
                     <li class="nav-item"><a class="nav-link" href=""> الصلاحيات </a></li>
                     <li class="nav-item"><a class="nav-link" href="">المجموعات  </a></li>
                     <li class="nav-item"><a class="nav-link" href=""> الاقسام </a></li>
-                    <li class="nav-item"><a class="nav-link" href=""> بياناتي </a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('admin.index')}}"> بياناتي </a></li>
                 </ul>
             </div>
       </div>
