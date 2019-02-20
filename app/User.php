@@ -41,7 +41,7 @@ class User extends Authenticatable
       public function updateEmailPass()
     {
       $data = request('password') == null ? request(['email']) : request()->all();
-      $this->update($data);
+      return $this->update($data);
     }
 
     public function setPasswordAttribute($pass){

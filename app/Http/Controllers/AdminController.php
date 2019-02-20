@@ -28,7 +28,7 @@ class AdminController extends Controller
      */
     public function update(UpdateUserRequest $request, User $admin)
     {
-      $admin->updateEmailPass();
+      flash_if_success_or_fail($admin->updateEmailPass());
       return back();
     }
 
