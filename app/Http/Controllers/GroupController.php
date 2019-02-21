@@ -10,7 +10,8 @@ class GroupController extends Controller
 
     public function index()
     {
-        //
+      $groups = Group::paginate(15);
+      return view('group.index',compact('groups'));
     }
 
 
@@ -38,7 +39,7 @@ class GroupController extends Controller
         //
     }
 
-  
+
     public function destroy(Group $group)
     {
         //
