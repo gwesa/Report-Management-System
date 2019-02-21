@@ -45,6 +45,7 @@ class GroupController extends Controller
 
     public function destroy(Group $group)
     {
-        //
+      flash_if_success_or_fail($group->delete());
+      return back();
     }
 }
