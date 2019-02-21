@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('admin','AdminController')->only(['index','update']);
+Route::resource('group','GroupController')->except('show');
