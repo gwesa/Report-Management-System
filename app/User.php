@@ -43,6 +43,11 @@ class User extends Authenticatable
        return $this->belongsToMany(Role::class,'role_user');
     }
 
+    public function groups()
+    {
+       return $this->belongsToMany(Group::class,'group_user');
+    }
+
       public function updateEmailPass()
     {
       $data = request('password') == null ? request(['email']) : request()->all();
