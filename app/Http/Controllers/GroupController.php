@@ -32,13 +32,14 @@ class GroupController extends Controller
 
     public function edit(Group $group)
     {
-        //
+      return view('group.edit',compact('group'));
     }
 
 
-    public function update(Request $request, Group $group)
+    public function update(GroupRequest $request, Group $group)
     {
-        //
+      flash_if_success_or_fail($group->update(request(['name'])));
+      return back();
     }
 
 
