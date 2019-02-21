@@ -1,10 +1,17 @@
 @component('layouts.inc.basic_style')
-  @section('title','عنوان الصفحة ')
+  @section('title','إضافة مجموعة  ')
 
   @slot('subject')
-    العنوان
+    إضافة مجموعة جديدة
   @endslot
 
-  التفاصيل
+  <form action="{{route('group.store')}}" method="post" class="contentForm" enctype="multipart/form-data">
+      @csrf
+    <div class="form-group">
+        <label> اسم المجموعة : </label>
+        <input type='text' name='name' class='form-control' value='{{old('name') }}'>
+      </div>
+      <button class="btn btn-sm  btn-success">إضافة</button>
+  </form>
 
 @endcomponent

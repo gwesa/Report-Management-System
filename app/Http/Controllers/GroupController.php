@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Group;
 use Illuminate\Http\Request;
+use App\Http\Requests\GroupRequest ;
 
 class GroupController extends Controller
 {
@@ -18,13 +19,14 @@ class GroupController extends Controller
 
     public function create()
     {
-        //
+       return view('group.create');
     }
 
 
-    public function store(Request $request)
+    public function store(GroupRequest $request)
     {
-        //
+       flash_if_success_or_fail(Group::create(request(['name'])));
+       return back();
     }
 
 
