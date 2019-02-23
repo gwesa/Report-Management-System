@@ -8,11 +8,12 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\softDeletes;
 use App\Traits\HasRoleTrait;
 use App\Traits\HasGroupTrait;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable,softDeletes,HasRoleTrait,HasGroupTrait;
+    use Notifiable,softDeletes,HasRoleTrait,HasGroupTrait,Cachable;
 
     /**
      * The attributes that are mass assignable.

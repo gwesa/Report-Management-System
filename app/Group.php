@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 
 class Group extends Model
 {
+
+  use Cachable;
   protected $fillable = ['name'];
 
   public function users()
