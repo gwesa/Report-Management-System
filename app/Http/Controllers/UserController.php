@@ -51,12 +51,27 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        //
+      $roles  = Role::get();
+      $groups = Group::get();
+      return view('user.edit',compact('user','roles','groups'));
     }
 
     public function update(Request $request, User $user)
     {
-        //
+      DB::beginTransaction();
+      try
+         {
+            $user->update(request(['name','email']));
+            $user->syncRoles(request('roles'));
+            $user->syncGroups(request('groups'));
+            DB::commit();
+            
+          } catch (\Exception $e) {
+             DB::rollback();
+             flash_fail('هناك خطاء يرجى المحاولة في وقت اخر');
+          }
+      flash_success('تم تعديل بيانات المستخدم بنجاح');
+      return back();
     }
 
     public function destroy(User $user)

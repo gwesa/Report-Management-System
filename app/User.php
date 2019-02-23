@@ -67,6 +67,15 @@ class User extends Authenticatable
       $this->groups()->attach($groups);
     }
 
+    public function syncGroups($groups)
+    {
+      $this->groups()->sync($groups);
+    }
+    public function syncRoles($roles)
+    {
+      $this->roles()->sync($roles);
+    }
+
 
     public function setPasswordAttribute($pass){
 
