@@ -65,7 +65,7 @@ class UserController extends Controller
             $user->syncRoles(request('roles'));
             $user->syncGroups(request('groups'));
             DB::commit();
-            
+
           } catch (\Exception $e) {
              DB::rollback();
              flash_fail('هناك خطاء يرجى المحاولة في وقت اخر');
@@ -76,6 +76,8 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
-        //
+      $user->delete();
+      flash_success('تم حذف المستخدم بنجاح   ');
+      return back();
     }
 }
