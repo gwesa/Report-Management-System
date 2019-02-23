@@ -9,7 +9,7 @@
             </button>
             <div class="collapse navbar-collapse col-lg-8 " >
                 <ul class="navbar-nav mr-auto " >
-                    <li class="nav-item"><a class="nav-link" href=""> إدارة المستخدمين  </a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('user.index')}}"> إدارة المستخدمين  </a></li>
                     <li class="nav-item"><a class="nav-link" href=""> التقارير </a></li>
                     <li class="nav-item"><a class="nav-link" href=""> الصلاحيات </a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('group.index')}}">المجموعات  </a></li>
