@@ -6,11 +6,13 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\softDeletes;
+use App\Traits\HasRoleTrait;
+use App\Traits\HasGroupTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable,softDeletes;
+    use Notifiable,softDeletes,HasRoleTrait,HasGroupTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -41,49 +43,13 @@ class User extends Authenticatable
 
     protected $dates = ['deleted_at'];
 
-    public function roles()
-    {
-       return $this->belongsToMany(Role::class,'role_user');
-    }
-
-    public function groups()
-    {
-       return $this->belongsToMany(Group::class,'group_user');
-    }
 
       public function updateEmailPass()
-    {
-      $data = request('password') == null ? request(['email']) : request()->all();
-      return $this->update($data);
-    }
+      {
+        $data = request('password') == null ? request(['email']) : request()->all();
+        return $this->update($data);
+      }
 
-    public function assignRoles($roles)
-    {
-      $this->roles()->attach($roles);
-    }
-
-    public function assignGroups($groups)
-    {
-      $this->groups()->attach($groups);
-    }
-
-    public function syncGroups($groups)
-    {
-      $this->groups()->sync($groups);
-    }
-    public function syncRoles($roles)
-    {
-      $this->roles()->sync($roles);
-    }
-
-    public function hasRole($roles)
-    {
-       foreach($roles as $role) {
-          if ($this->roles->contains('name', $role))
-             return true ;
-       }
-        return false;
-    }
 
 
     public function setPasswordAttribute($pass){
