@@ -76,6 +76,15 @@ class User extends Authenticatable
       $this->roles()->sync($roles);
     }
 
+    public function hasRole($roles)
+    {
+       foreach($roles as $role) {
+          if ($this->roles->contains('name', $role))
+             return true ;
+       }
+        return false;
+    }
+
 
     public function setPasswordAttribute($pass){
 
