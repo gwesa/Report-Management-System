@@ -57,6 +57,17 @@ class User extends Authenticatable
       return $this->update($data);
     }
 
+    public function assignRoles($roles)
+    {
+      $this->roles()->attach($roles);
+    }
+
+    public function assignGroups($groups)
+    {
+      $this->groups()->attach($groups);
+    }
+
+
     public function setPasswordAttribute($pass){
 
       $this->attributes['password'] = Hash::make($pass);
