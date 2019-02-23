@@ -94,6 +94,11 @@ margin-top: 8%;
 .card-body{
   text-align: center;
 }
+
+label.btn.btn-default.btn-checkbox {
+    background: whitesmoke;
+}
+
 @media only screen and (max-device-width: 736px) {
 
 .bg-hehader {

@@ -30,7 +30,7 @@
             <div class="col-md-12">
                 @foreach($roles as $role)
                     <div class="btn-group" role="group">
-                        <label class="btn btn-default ">
+                        <label class="btn btn-default btn-checkbox">
                           {{$role->name}}  <input  name='roles[]' value='{{$role->id}}' type="checkbox" >
                         </label>
                     </div>
@@ -44,7 +44,7 @@
           <div class="col-md-12">
               @foreach($groups as $group)
                   <div class="btn-group" role="group">
-                      <label class="btn btn-default">
+                      <label class="btn btn-default btn-checkbox">
                         {{$group->name}}  <input  name='groups[]' value='{{$group->id}}' type="checkbox" >
                       </label>
                   </div>
