@@ -51,6 +51,11 @@ class User extends Authenticatable
         return $this->update($data);
       }
 
+      public function reports()
+     {
+         return $this->hasMany(Report::class);
+     }
+
 
 
     public function setPasswordAttribute($pass){

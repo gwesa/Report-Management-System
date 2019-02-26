@@ -11,7 +11,13 @@ class Report extends Model
 
    protected $fillable = ['name','description','user_id','group_id'];
 
-   public function files(){
+   public function files()
+   {
       return $this->hasMany(File::class);
-  }
+   }
+
+   public function user()
+   {
+      return $this->belongsTo(User::class);
+   }
 }
