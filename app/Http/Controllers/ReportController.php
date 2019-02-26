@@ -25,7 +25,8 @@ class ReportController extends Controller
      */
     public function create()
     {
-       //
+      $groups = Group::get();
+      return view('report.create',compact('groups'));
     }
 
     /**

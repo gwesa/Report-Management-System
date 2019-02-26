@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{asset('css/style.css?v=55' )}}" rel="stylesheet" type="text/css" >
+    <link href="{{asset('css/style.css?v=5' )}}" rel="stylesheet" type="text/css" >
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
     <!-- js -->
