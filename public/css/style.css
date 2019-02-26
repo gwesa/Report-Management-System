@@ -99,6 +99,65 @@ label.btn.btn-default.btn-checkbox {
     background: whitesmoke;
 }
 
+.header_report .col-lg-3 {
+    border: 1px solid #f1f1f1;
+    padding: 1%;
+}
+.min-title{
+text-align: right;
+font-size: unset;
+padding: 1%;
+}
+.min-title a {
+  color:black;
+  text-decoration: none;
+}
+.number-report {
+    text-align: right;
+    color: #a5a5a5;
+    font-size: 0.8rem;
+    padding-top: 4px;
+    padding-bottom: 9px;
+}
+.reports .col-lg-4{
+
+    margin-bottom: 1%;
+    border-bottom: 1px solid whitesmoke;
+
+}
+.header_report .active, .col-lg-3:hover {
+  background-color: #e8e7e7;
+  color: white;
+}
+.reports {
+  margin-top:4%;
+}
+.reports.hide {
+    display: none;
+}
+.header_report a {
+  color: #0e55a2;
+  text-decoration: none;
+}
+input[type="radio"]
+{
+      margin: 6px 2% 4% 1%;
+}
+.radio_search {
+  width: 100%;
+}
+.input-search{
+  width: 50%!important;
+  text-align: center;
+  margin: auto;
+}
+th {
+    white-space: nowrap;
+}
+#search-label{
+      color: #0054a8;
+}
+
 @media only screen and (max-device-width: 736px) {
 
 .bg-hehader {
