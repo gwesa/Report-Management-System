@@ -51,6 +51,11 @@ class ReportController extends Controller
         //
     }
 
+    public function list_reports()
+    {
+       return view('report.listOfReports');
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
