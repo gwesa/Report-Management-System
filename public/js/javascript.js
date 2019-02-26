@@ -22,4 +22,25 @@ $(document).ready(function () {
    $(target_tab_selector).removeClass('hide');
    $(target_tab_selector).addClass('active');
  });
+
+ // show img 
+ $(".popup button.img").click(function () {
+     var $src = $(this).attr("value");
+     $(".show").fadeIn();
+     $(".img-show img").attr("src", $src);
+  });
+
+
+ $("span, .overlay").click(function () {
+     $(".show").fadeOut();
+  });
+  //play audio
+  $( "#playAudio" ).click(function() {
+       $('#Audio' )[0].play();
+   });
+
+   //pause audio
+  $( "#pauseAudio" ).click(function() {
+     $("#Audio")[0].pause();
+   });
 });
