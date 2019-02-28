@@ -4,10 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use GeneaLabs\LaravelModelCaching\Traits\Cachable;
+use Cviebrock\EloquentTaggable\Taggable;
 
 class Report extends Model
 {
-   use Cachable ;
+   use Cachable,Taggable;
 
    protected $fillable = ['name','description','user_id','group_id'];
 
