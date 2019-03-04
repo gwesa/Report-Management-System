@@ -6,7 +6,7 @@ use App\Report;
 use Illuminate\Http\Request;
 use App\Group;
 use Cviebrock\EloquentTaggable\Models\Tag;
-use Auth; 
+use Auth;
 
 class ReportController extends Controller
 {
@@ -95,5 +95,12 @@ class ReportController extends Controller
     public function destroy(Report $report)
     {
         //
+    }
+
+    public function reportByGroup(Group $group)
+    {
+      abort_if(! Auth::user()->hasGroup($group->id),403);
+      $reports = $group->reports->load('tags')->paginate(15);
+      return view('report.ListOfReports',compact('reports'));
     }
 }
