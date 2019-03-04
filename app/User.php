@@ -56,6 +56,12 @@ class User extends Authenticatable
          return $this->hasMany(Report::class);
      }
 
+     public function isAdmin()
+    {
+       return $this->hasRole(['Admin'])? true : false ;
+    }
+
+
 
 
     public function setPasswordAttribute($pass){
