@@ -31,5 +31,10 @@ trait HasGroupTrait {
      return $this->groups->pluck('id')->toArray() ;
   }
 
+  public function hasGroup($groupId)
+  {
+    return $this->isAdmin() ? true : in_array($groupId,Auth::user()->userGroupIds());
+  }
+
 
 }
