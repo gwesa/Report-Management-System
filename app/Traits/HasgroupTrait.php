@@ -2,6 +2,7 @@
 namespace App\Traits;
 
 use App\Group;
+use Auth;
 
 trait HasGroupTrait {
 
@@ -18,6 +19,16 @@ trait HasGroupTrait {
   public function syncGroups($groups)
   {
     $this->groups()->sync($groups);
+  }
+
+  public function userGroups()
+  {
+    return $this->isAdmin() ? Group::get() : $this->groups ;
+  }
+
+  public function userGroupIds()
+  {
+     return $this->groups->pluck('id')->toArray() ;
   }
 
 
