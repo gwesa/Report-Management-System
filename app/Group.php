@@ -15,4 +15,9 @@ class Group extends Model
  {
    return $this->belongsToMany(User::class,'group_user');
  }
+
+  public function reports()
+ {
+     return $this->hasMany(Report::class);
+ }
 }
