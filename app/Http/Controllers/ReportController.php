@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Report;
 use Illuminate\Http\Request;
 use App\Group;
+use Cviebrock\EloquentTaggable\Models\Tag;
+use Auth; 
 
 class ReportController extends Controller
 {
@@ -15,7 +17,12 @@ class ReportController extends Controller
      */
     public function index()
     {
-       return view('report.index');
+       $reports = Report::orderBy('created_at', 'ASC')->with('tags','group')
+                      ->filterReports()->paginate(15);
+       $tags    = Tag::get() ;
+       $groups  = Auth::user()->userGroups();
+
+       return view('report.index',compact('tags','reports','groups'));
     }
 
     /**

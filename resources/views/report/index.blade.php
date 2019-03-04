@@ -3,9 +3,11 @@
   @section('title','التقارير  ')
   @slot('subject')
     التقارير
-    <a href="{{route('report.create')}}"
-       class="btn btn-success btn-sm float-left"> إضافة
-    </a>
+     @role(['Admin','Writer'])
+      <a href="{{route('report.create')}}"
+         class="btn btn-success btn-sm float-left"> إضافة
+      </a>
+    @endrole
   @endslot
     <div class="row header_report" >
       <div class="col-lg-3 active">
