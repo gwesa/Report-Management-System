@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 use Cviebrock\EloquentTaggable\Taggable;
 
+use Auth;
+
 class Report extends Model
 {
    use Cachable,Taggable;
@@ -26,5 +28,19 @@ class Report extends Model
    {
       return $this->belongsTo(Group::class);
    }
+
+   public function scopeFilterReports($query)
+  {
+      return (Auth::user()->isAdmin()) ? $query : $this->filter($query->get());
+  }
+
+  public function filter($reports)
+  {
+     $user_groups = Auth::user()->userGroupIds();
+     $result = $reports->filter(function ($value, $key) use($user_groups) {
+                      return in_array($value->group_id,$user_groups) ;
+                });
+     return $result;
+  }
 
 }
