@@ -103,4 +103,13 @@ class ReportController extends Controller
       $reports = $group->reports->load('tags')->paginate(15);
       return view('report.ListOfReports',compact('reports'));
     }
+
+    public function reportByTag($name)
+    {
+       $reports = Report::with('tags')
+                  ->withAnyTags($name)
+                  ->filterReports()
+                  ->paginate(15);
+       return view('report.ListOfReports',compact('reports'));
+    }
 }

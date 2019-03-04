@@ -2,7 +2,7 @@
   @foreach($tags as $tag)
     <div class="col-lg-4">
       <div class="min-title">
-        <a href=''>{{$tag->name}} </a>
+        <a href='{{route('reportByTag',[$tag->name])}}'>{{$tag->name}} </a>
       </div>
     </div>
   @endforeach
