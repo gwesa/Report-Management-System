@@ -29,6 +29,11 @@ class Report extends Model
       return $this->belongsTo(Group::class);
    }
 
+   public function createFile($name,$type,$path)
+  {
+    return $this->files()->create(['name'=>$name,'type'=>$type,'path'=>$path]);
+  }
+
    public function scopeFilterReports($query)
   {
       return (Auth::user()->isAdmin()) ? $query : $this->filter($query->get());

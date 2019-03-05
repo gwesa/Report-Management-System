@@ -29,14 +29,14 @@
                 <td>{{$file->type}}</td>
                  </td>
                  <td>
-                   <a href="{{ asset('../storage/app/public/'.$file->path) }}" download>
+                   <a href="{{$s3Url}}/{{$file->path}}" download>
                      <i class="fas fa-download"></i>
                   </a>
                 </td>
                 @if($file->type == 'audio')
                   <td>
                     <audio id="Audio">
-                     <source src="{{ asset('../storage/app/public/'.$file->path)}}" type="audio/ogg">
+                     <source src="{{$s3Url}}/{{$file->path}}" type="audio/ogg">
                            Your browser does not support the audio element.
                     </audio>
                     <button class="btn btn-link "  id="playAudio" type="button"><i class="fas fa-play"></i>  </button>
@@ -44,7 +44,7 @@
                   </td>
                 @else
                 <td>
-                 <button class="btn btn-link img" value="{{asset('../storage/app/public/'.$file->path)}}" type="button"> <i class="fas fa-eye"></i></button>
+                 <button class="btn btn-link img" value="{{$s3Url}}/{{$file->path}}" type="button"> <i class="fas fa-eye"></i></button>
                 </td>
                 @endif
               </tr>
