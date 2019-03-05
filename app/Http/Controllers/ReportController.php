@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Report;
+
 use Illuminate\Http\Request;
+use App\Http\Requests\ReportRequest ;
+
+use App\Jobs\UploadFileJob;
+use App\Report;
 use App\Group;
+use App\User;
 use Cviebrock\EloquentTaggable\Models\Tag;
 use Auth;
+use Debugbar;
+
 
 class ReportController extends Controller
 {
@@ -42,9 +49,13 @@ class ReportController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ReportRequest $request)
     {
-        //
+      $report =  Auth::user()->cresteReport();
+      foreach($request->file('files') as $file){
+        UploadFileJob::dispatch($file,$report);
+      }
+      return redirect('report/'.$report->id);
     }
 
     /**

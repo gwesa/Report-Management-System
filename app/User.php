@@ -61,8 +61,12 @@ class User extends Authenticatable
        return $this->hasRole(['Admin'])? true : false ;
     }
 
-
-
+    public function cresteReport()
+    {
+      return $this->reports()
+                  ->create(request(['name','description','group_id']))
+                  ->tag(request('tags'));
+    }
 
     public function setPasswordAttribute($pass){
 
