@@ -51,5 +51,7 @@ class AppServiceProvider extends ServiceProvider
       });
 
       Schema::defaultStringLength(191);
+
+     \View::share('s3Url','https://s3.ap-south-1.amazonaws.com/report.system2');
     }
 }
