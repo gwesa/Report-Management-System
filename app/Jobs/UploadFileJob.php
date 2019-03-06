@@ -8,6 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 
+use App\Events\FilesUploadedEvent;
 use App\Traits\UploadFileTrait;
 use App\Report;
 use Storage;
@@ -41,5 +42,6 @@ class UploadFileJob implements ShouldQueue
         Storage::disk('s3')->put($this->path,base64_decode($file['file']));
         $createFile = $this->report->createFile($file['name'],$file['type'],$file['path']);
       }
+      event( new FilesUploadedEvent($this->report));
     }
 }
