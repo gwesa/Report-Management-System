@@ -25,7 +25,7 @@
       </div>
       <div class="form-group">
           <label> االتصنيف   : </label>
-            <input type='text' name='tags' class='form-control' value='{{old('name') }}'  placeholder=" Technology , Sports , Medical .. etc" required>
+            <input type='text' name='tags' class='form-control' value='{{old('tags') }}'  placeholder=" Technology , Sports , Medical .. etc" required>
       </div>
       <div class="form-group">
           <label> المجموعة التابع لها    : </label>
