@@ -51,11 +51,10 @@ class ReportController extends Controller
      */
     public function store(ReportRequest $request)
     {
-      $report =  Auth::user()->cresteReport();
-      foreach($request->file('files') as $file){
-        UploadFileJob::dispatch($file,$report);
-      }
-      return redirect('report/'.$report->id);
+       $report =  Auth::user()->cresteReport();
+       UploadFileJob::dispatch($request->file('files'),$report);
+       flash_success('تم إضافة االتقرير بنجاح، عند إكتمال رفع الملفات سيتم إشعار على البريد الالكتروني');
+       return redirect('report/'.$report->id);
     }
 
     /**

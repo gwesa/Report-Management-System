@@ -23,15 +23,10 @@ class UploadFileJob implements ShouldQueue
      */
 
 
-    public function __construct($file,Report $reportId)
+    public function __construct($files, $report)
     {
-        $this->report = $reportId;
-        $this->extension = $this->getExtension($file);
-        $this->type = $this->getFileType($this->extension);
-        $this->name = $this->getName($file);
-        $this->storageName = $this->getStorageName($reportId->id,$this->name);
-        $this->path = $this->getPath($this->type,$this->storageName);
-        $this->file = base64_encode($this->processFile($this->type,$file));
+        $this->report = $report;
+        $this->files  = $this->processFile($files);
     }
 
     /**
@@ -42,9 +37,9 @@ class UploadFileJob implements ShouldQueue
 
     public function handle()
     {
-      Storage::disk('s3')->put($this->path,base64_decode($this->file));
-      $createFile = $this->report->createFile($this->name,$this->type,$this->path);
+      foreach($this->files as $file) {
+        Storage::disk('s3')->put($this->path,base64_decode($file['file']));
+        $createFile = $this->report->createFile($file['name'],$file['type'],$file['path']);
+      }
     }
-
-
 }

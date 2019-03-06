@@ -7,7 +7,7 @@ trait UploadFileTrait {
 
 
   protected $path ;
-  protected $file ;
+  protected $files ;
   protected $name ;
   protected $extension ;
   protected $type ;
@@ -16,9 +16,18 @@ trait UploadFileTrait {
   protected $imagExtensions = ['jpeg','png','jpg','gif','svg'];
   protected $audioExtensions= ['mpga','ogg','mp3'];
 
-  protected function processFile($type,$file)
+  protected function processFile($files)
   {
-     return ($type == 'image' ? $this->resizeImage($file) : file_get_contents($file));
+    foreach ($files as $file) {
+      $this->extension = $this->getExtension($file);
+      $this->type = $this->getFileType($this->extension);
+      $this->name = $this->getName($file);
+      $this->storageName = $this->getStorageName($this->report->id,$this->name);
+      $this->path = $this->getPath($this->type,$this->storageName);
+      $file = ($this->type  == 'image' ? $this->resizeImage($file) : file_get_contents($file));
+      $filesProcessed[] = $this->putFileInfoInArray($file);
+    }
+    return $filesProcessed ;
   }
 
   protected function getPath($type,$storageName)
@@ -52,6 +61,15 @@ trait UploadFileTrait {
       return 'image';
     if(in_array($extension , $this->audioExtensions))
       return 'audio';
+  }
+
+  protected function putFileInfoInArray($file)
+  {
+    return [ 'file' => base64_encode($file),
+             'type' => $this->type,
+             'name' => $this->name,
+             'path' => $this->path
+           ];
   }
 
 }
