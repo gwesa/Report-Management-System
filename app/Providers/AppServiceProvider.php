@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
-
+use Illuminate\Support\Facades\Queue;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -51,7 +51,10 @@ class AppServiceProvider extends ServiceProvider
       });
 
       Schema::defaultStringLength(191);
-
+      
      \View::share('s3Url','https://s3.ap-south-1.amazonaws.com/report.system2');
-    }
+
+
+
+  }
 }
