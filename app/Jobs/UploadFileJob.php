@@ -39,7 +39,7 @@ class UploadFileJob implements ShouldQueue
     public function handle()
     {
       foreach($this->files as $file) {
-        Storage::disk('s3')->put($this->path,base64_decode($file['file']));
+        Storage::disk('s3')->put($file['path'],base64_decode($file['file']));
         $createFile = $this->report->createFile($file['name'],$file['type'],$file['path']);
       }
       event( new FilesUploadedEvent($this->report));
