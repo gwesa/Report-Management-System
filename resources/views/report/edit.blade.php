@@ -112,7 +112,7 @@
   <br/>
 
   @role(['Delete','Admin'])
-    <form method="post" action="{{url('report.delete', [$report->id])}}" style="margin-top:3%">
+    <form method="post" action="{{route('report.destroy', [$report->id])}}" style="margin-top:3%">
         @method('DELETE')
         @csrf
         <button type="submit" class="btn btn-danger btn-block"

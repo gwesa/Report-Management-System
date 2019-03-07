@@ -109,7 +109,9 @@ class ReportController extends Controller
      */
     public function destroy(Report $report)
     {
-      //
+        $report->detag();
+        flash_if_success_or_fail($report->delete());
+        return redirect('report');
     }
 
     public function reportByGroup(Group $group)
