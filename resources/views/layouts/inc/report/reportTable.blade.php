@@ -23,7 +23,7 @@
         <td>{{$report->created_at}}</td>
         <td><a class="btn btn-success btn-sm" href="{{route('report.show',[$report->id])}}"> عرض</a></td>
         @role(['Editor','Admin'])
-         <td><a class="btn btn-info btnc-sm" href="">تعديل </a></td>
+         <td><a class="btn btn-info btnc-sm" href="{{route('report.edit',[$report->id])}}">تعديل </a></td>
         @endrole
         @role(['Delete','Admin'])
           <td>
