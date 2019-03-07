@@ -82,7 +82,8 @@ class ReportController extends Controller
      */
     public function edit(Report $report)
     {
-        //
+      $groups = Group::get();
+      return view('report.edit',compact('report','groups'));
     }
 
     /**
