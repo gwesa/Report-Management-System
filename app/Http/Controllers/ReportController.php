@@ -93,9 +93,12 @@ class ReportController extends Controller
      * @param  \App\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Report $report)
+    public function update(ReportRequest $request, Report $report)
     {
-        //
+      $report->updateReport();
+      $request->hasfile('files') ? $this->uploadFiles(request('files'),$report)
+                                 : flash_success('تم التعديل بنجاح ');
+      return back();
     }
 
     /**
@@ -106,7 +109,7 @@ class ReportController extends Controller
      */
     public function destroy(Report $report)
     {
-        //
+      //
     }
 
     public function reportByGroup(Group $group)
@@ -123,5 +126,11 @@ class ReportController extends Controller
                   ->filterReports()
                   ->paginate(15);
        return view('report.ListOfReports',compact('reports'));
+    }
+
+    public function uploadFiles($files,$report)
+    {
+      UploadFileJob::dispatch($files,$report);
+      return flash_success('تم التعديل بنجاح، عند اكتمال رفع الملفات سيتم ااشعارك على البريد الالكتروني ');
     }
 }

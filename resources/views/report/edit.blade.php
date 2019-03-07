@@ -6,6 +6,7 @@
   <form action="{{route('report.update',[$report->id])}}" method="post" class="contentForm" enctype="multipart/form-data">
     @csrf
     @method('PATCH')
+    <input name='id' type="hidden" value="{{$report->id}}">
     <div class="text-right">
       <fieldset class="p-3" >
         <div class="form-group">

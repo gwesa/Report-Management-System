@@ -39,6 +39,12 @@ class Report extends Model
       return (Auth::user()->isAdmin()) ? $query : $this->filter($query->get());
   }
 
+  public function updateReport()
+  {
+      $this->update(request(['name','description','group_id']));
+      $this->retag(request('tags'));
+  }
+
   public function filter($reports)
   {
      $user_groups = Auth::user()->userGroupIds();
