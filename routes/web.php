@@ -29,3 +29,4 @@ Route::prefix('report')->group(function(){
 });
 
 Route::resource('file','FileController')->only(['destroy']);
+Route::get('search', 'SearchController@search')->name('search');
