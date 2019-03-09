@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ReportRequest ;
 
 use App\Jobs\UploadFileJob;
+use App\Jobs\DeleteFileJob;
 use App\Report;
 use App\Group;
 use App\User;
@@ -110,6 +111,7 @@ class ReportController extends Controller
     public function destroy(Report $report)
     {
         $report->detag();
+        DeleteFileJob::dispatch($report->files->pluck('path')->toArray());
         flash_if_success_or_fail($report->delete());
         return redirect('report');
     }
