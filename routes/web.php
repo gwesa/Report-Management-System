@@ -27,3 +27,5 @@ Route::prefix('report')->group(function(){
   Route::name('reportByGroup')->get('/group/{group}','ReportController@reportByGroup');
   Route::name('reportByTag')->get('/Tag/{name}','ReportController@reportByTag');
 });
+
+Route::resource('file','FileController')->only(['destroy']);
