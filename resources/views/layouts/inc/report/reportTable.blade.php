@@ -34,6 +34,7 @@
                  onclick="return confirm('هل انت متاكد من حذف التقرير ?');">
                  حذف
               </button>
+            </form>
           </td>
         @endrole
        </tr>
@@ -41,4 +42,4 @@
   </tbody>
 </table>
 </div>
-{{ $reports->links() }}
+{{ $reports->appends(['search' => request()->query('search')])->links() }}
