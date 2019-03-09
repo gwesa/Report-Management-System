@@ -23,7 +23,7 @@ $(document).ready(function () {
    $(target_tab_selector).addClass('active');
  });
 
- // show img 
+ // show img
  $(".popup button.img").click(function () {
      var $src = $(this).attr("value");
      $(".show").fadeIn();
@@ -43,4 +43,10 @@ $(document).ready(function () {
   $( "#pauseAudio" ).click(function() {
      $("#Audio")[0].pause();
    });
+
+
+  $(".view_files").click(function(){
+    $("#files").toggle(1000);
+  });
+  
 });
