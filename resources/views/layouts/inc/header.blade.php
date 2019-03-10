@@ -15,6 +15,15 @@
                     <li class="nav-item"><a class="nav-link" href="{{route('group.index')}}">المجموعات  </a></li>
                     <li class="nav-item"><a class="nav-link" href=""> الاقسام </a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('admin.index')}}"> بياناتي </a></li>
+                    <li class="nav-item">
+                      <a href="{{ route('logout') }}" class="nav-link"
+                        onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                         تسجيل خروج
+                     </a>
+                   </li>
+                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                          {{ csrf_field() }}
+                   </form>
                 </ul>
             </div>
       </div>
