@@ -20,6 +20,13 @@ class ReportController extends Controller
 {
   use HasFile;
 
+  public function __construct()
+   {
+      $this->middleware('role:Writer')->only(['create','store']);
+      $this->middleware('role:Delete')->only('destroy');
+      $this->middleware('role:Editor')->only(['edit','update']);
+   }
+
     public function index()
     {
        $reports = Report::orderBy('created_at', 'ASC')->with('tags','group')

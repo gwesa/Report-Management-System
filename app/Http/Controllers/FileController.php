@@ -8,6 +8,12 @@ use App\Jobs\DeleteFileJob;
 
 class FileController extends Controller
 {
+
+  public function __construct()
+   {
+      $this->middleware('role:Delete');
+   }
+
   public function destroy(File $file)
   {
     $file->delete();

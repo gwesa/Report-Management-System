@@ -16,17 +16,19 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('admin','AdminController')->only(['index','update']);
-Route::resource('group','GroupController')->except('show');
-Route::resource('user','UserController')->except('show');
-Route::resource('report','ReportController');
-Route::get('list/reports','ReportController@list_reports');
-Route::prefix('report')->group(function(){
-  Route::name('reportByGroup')->get('/group/{group}','ReportController@getReportByGroup');
-  Route::name('reportByTag')->get('/Tag/{name}','ReportController@getReportByTag');
+Route::group(['middleware' => 'auth'], function() {
+  Route::group(['middleware' => 'role:Admin'], function() {
+    Route::resource('admin','AdminController')->only(['index','update']);
+    Route::resource('group','GroupController')->except('show');
+    Route::resource('user','UserController')->except('show');
+  });
+  Route::resource('file','FileController')->only(['destroy']);
+  Route::get('search', 'SearchController@search')->name('search');
+  Route::get('/home', 'HomeController@index')->name('home');
+  Route::resource('report','ReportController');
+  Route::get('list/reports','ReportController@list_reports');
+  Route::prefix('report')->group(function(){
+    Route::name('reportByGroup')->get('/group/{group}','ReportController@getReportByGroup');
+    Route::name('reportByTag')->get('/Tag/{name}','ReportController@getReportByTag');
+  });
 });
-
-Route::resource('file','FileController')->only(['destroy']);
-Route::get('search', 'SearchController@search')->name('search');

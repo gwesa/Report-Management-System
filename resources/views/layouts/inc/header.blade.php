@@ -9,18 +9,19 @@
             </button>
             <div class="collapse navbar-collapse col-lg-8 " >
                 <ul class="navbar-nav mr-auto " >
+                    <li class="nav-item"><a class="nav-link" href="{{route('home')}}"> الرئيسية </a></li>
+                  @role(['Admin'])
                     <li class="nav-item"><a class="nav-link" href="{{route('user.index')}}"> إدارة المستخدمين  </a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('report.index')}}"> التقارير </a></li>
-                    <li class="nav-item"><a class="nav-link" href=""> الصلاحيات </a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('group.index')}}">المجموعات  </a></li>
-                    <li class="nav-item"><a class="nav-link" href=""> الاقسام </a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('admin.index')}}"> بياناتي </a></li>
+                  @endrole
+                    <li class="nav-item"><a class="nav-link" href="{{route('report.index')}}"> التقارير </a></li>
                     <li class="nav-item">
                       <a href="{{ route('logout') }}" class="nav-link"
                         onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                          تسجيل خروج
                      </a>
-                   </li>
+                    </li>
                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                           {{ csrf_field() }}
                    </form>
