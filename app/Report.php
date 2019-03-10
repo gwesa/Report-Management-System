@@ -45,6 +45,16 @@ class Report extends Model
       $this->retag(request('tags'));
   }
 
+  public function deleteReport()
+  {
+      $this->detag();
+      return $this->delete();
+  }
+  public function getPathFiles()
+  {
+    $this->files->pluck('path')->toArray();
+  }
+
   public function filter($reports)
   {
      $user_groups = Auth::user()->userGroupIds();

@@ -24,8 +24,8 @@ Route::resource('user','UserController')->except('show');
 Route::resource('report','ReportController');
 Route::get('list/reports','ReportController@list_reports');
 Route::prefix('report')->group(function(){
-  Route::name('reportByGroup')->get('/group/{group}','ReportController@reportByGroup');
-  Route::name('reportByTag')->get('/Tag/{name}','ReportController@reportByTag');
+  Route::name('reportByGroup')->get('/group/{group}','ReportController@getReportByGroup');
+  Route::name('reportByTag')->get('/Tag/{name}','ReportController@getReportByTag');
 });
 
 Route::resource('file','FileController')->only(['destroy']);
