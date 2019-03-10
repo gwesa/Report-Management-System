@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use App\Rules\FileType;
 class ReportRequest extends FormRequest
 {
     /**
@@ -23,20 +23,15 @@ class ReportRequest extends FormRequest
      */
     public function rules()
     {
+
+
         return [
           'name'=>'required|string|min:3|max:225|unique:reports,name,' . $this->get('id'),
-          'files' => 'required|array',
-          'files.*' => 'required|mimes:jpeg,png,jpg,gif,svg,audio/mpeg,wav',
+          'files' => 'array',
+          'files.*' => ['required',new FileType],
           'description' => 'required|string|min:4',
           'group_id' => 'required|numeric',
-          'tags' => 'required|string|regex:/^[a-z]+(,[a-z]+)*$/',
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-          'tags.regex' => 'يجب إدخال اسم التصنيف بشكل صحيح(اعمال،رياضة)',
+          'tags' => 'required|string',
         ];
     }
 }
