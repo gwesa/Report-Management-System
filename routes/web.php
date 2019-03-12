@@ -32,3 +32,5 @@ Route::group(['middleware' => 'auth'], function() {
     Route::name('reportByTag')->get('/Tag/{name}','ReportController@getReportByTag');
   });
 });
+
+Route::get('lang/{lang}', 'langController');
