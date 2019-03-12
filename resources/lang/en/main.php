@@ -1,0 +1,33 @@
+<?php
+
+return [
+  'app_name' => 'Report Management System',
+  'list_1' => 'Your reports are always available',
+  'list_2' => 'Save any document.',
+  'list_3' => 'A quick search and easy access to reports.',
+  'title_login' => 'Login ',
+  'login' => 'login',
+  'email' => ' E-mail ',
+  'pass' => ' Password  ',
+  'forget_pass'  => ' forget password  ',
+  'home' => 'Home',
+  'users' => 'Users',
+  'groups' => 'Groups',
+  'reports' => 'Reports',
+  'logout' => 'Logout',
+  'profile' => 'profile',
+  'ar' => 'Arabic',
+  'en' => 'English',
+  'welcome' => 'Welcome back',
+  'details' => 'Personal details',
+  'roles'   => 'Roles',
+  'my_groups'  => 'Groups',
+  'name'  => 'name',
+  'add'  => ' Add',
+  'edit'  => ' Edit',
+  'delete'  => ' Delete',
+  'view'  => ' View',
+  'action' => 'Action',
+  'password confirmation' => 'Confirm Password',
+
+];
