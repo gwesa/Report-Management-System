@@ -26,29 +26,13 @@ class UserController extends Controller
 
     public function store(CreateUserRequest $request)
     {
-      DB::beginTransaction();
-      try
-         {
-            $user = User::create(request(['name','email','password']));
-            $user->assignRoles(request('roles'));
-            $user->assignGroups(request('groups'));
-            DB::commit();
-
-         } catch (\Exception $e) {
-            DB::rollback();
-            flash_fail('هناك خطاء يرجى المحاولة في وقت اخر');
-            return back();
-
-         }
-         flash_success('تمت  اضافة العميل بنجاح ');
-         return back();
+      $user = User::create(request(['name','email','password']));
+      $user->assignRoles(request('roles'));
+      $user->assignGroups(request('groups'));
+      flash_success(\Lang::get('message.success'));
+      return back();
     }
-
-    public function show(User $user)
-    {
-        //
-    }
-
+    
     public function edit(User $user)
     {
       $roles  = Role::get();
@@ -58,26 +42,15 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
-      DB::beginTransaction();
-      try
-         {
-            $user->update(request(['name','email']));
-            $user->syncRoles(request('roles'));
-            $user->syncGroups(request('groups'));
-            DB::commit();
-
-          } catch (\Exception $e) {
-             DB::rollback();
-             flash_fail('هناك خطاء يرجى المحاولة في وقت اخر');
-          }
-      flash_success('تم تعديل بيانات المستخدم بنجاح');
+      $user->update(request(['name','email']));
+      $user->syncRoles(request('roles'));
+      flash_success(\Lang::get('message.success'));
       return back();
     }
 
     public function destroy(User $user)
     {
-      $user->delete();
-      flash_success('تم حذف المستخدم بنجاح   ');
+      flash_if_success_or_fail($user->delete());
       return back();
     }
 }
