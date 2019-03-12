@@ -1,5 +1,5 @@
 <!doctype html>
-<html >
+<html dir="{{(app()->getLocale() == 'ar' ? 'rtl' : 'ltr')}}">
   <head>
     <meta charset="utf-8">
     <title>نظام إدارة التقارير</title>
@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
     <link href="{{asset('css/style.css?v=79' )}}" rel="stylesheet" type="text/css" >
   </head>
-  <body dir="rtl">
+  <body >
     <div>
       <div class="bg-hehader">
         <div>

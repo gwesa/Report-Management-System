@@ -1,0 +1,67 @@
+
+html[dir="ltr"] .bg-hehader  h3 {
+  left: 7%;
+  right:0%
+
+}
+
+
+html[dir='ltr'] .background-form {
+  left: 57%
+}
+html[dir='ltr'] .form{
+  padding-left: 4%;
+  padding-right: 8%;
+}
+
+html[dir='ltr'] .ul-welcome{
+  float: left;
+  text-align: left;
+  margin-left: 6%;
+  margin-right: 0%;
+}
+
+html[dir='ltr'] .min-title{
+text-align: left;
+}
+
+html[dir='ltr'] .number-report {
+    text-align: left;
+}
+
+html[dir='ltr'] input[type="radio"]
+{
+  margin: 6px 1% 4% 2%;
+}
+
+
+html[dir='ltr'] .report-detail span {
+ margin-left: 5%;
+  margin-right: 0%;
+}
+html[dir='ltr'] .report-detail .row {
+      margin: 0% 0% 2% 1%;
+}
+html[dir='ltr'] .show .overlay{
+    right: 0;
+  }
+html[dir='ltr'] .show .img-show{
+    right: 50%;
+    left: 0%;
+  }
+html[dir='ltr'] .img-show span{
+    letf: 10px;
+    right: 0px;
+  }
+html[dir='ltr'] .img-show img{
+
+    top: 0;
+    right: 0;
+  }
+
+html[dir='ltr'] .text-md-right {
+    text-align: left!important;
+}
+html[dir='ltr'] .text-right{
+  text-align: left!important;
+}
