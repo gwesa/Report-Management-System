@@ -163,6 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         App\Providers\RoleServiceProvider::class,
+        App\Providers\LangServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
 
 
