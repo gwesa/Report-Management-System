@@ -1,16 +1,16 @@
 @component('layouts.inc.basic_style')
-  @section('title','المجموعات  ')
+  @section('title', __('main.groups'))
 
   @slot('subject')
-    المجموعات
-    <a style="float: left;"class="btn btn-success btn-sm" href="{{route('group.create')}}"> إضافة</a>
+    {{ __('main.groups') }}
+    <a style="float: left;"class="btn btn-success btn-sm" href="{{route('group.create')}}"> {{ __('main.add')}}</a>
   @endslot
 
   <table class="table table-bordered">
         <thead>
           <tr >
-            <th >الإسم</th>
-            <th  colspan="2">الإجراء</th>
+            <th >{{ __('group.name')}}</th>
+            <th  colspan="2">{{ __('main.action') }}</th>
             </tr>
         </thead>
         <tbody>
@@ -18,15 +18,16 @@
             <tr>
                 <td>{{$group->name}}</td>
                 <td>
-                  <a class="btn btn-info btn-sm" href="{{route('group.edit',$group->id)}}"> تعديل</a>
+                  <a class="btn btn-info btn-sm" href="{{route('group.edit',$group->id)}}"> {{ __('main.edit' )}}</a>
                 </td>
                 <td>
                   <form method="post" action="{{ route('group.destroy', [ $group->id]) }}">
                       @method('DELETE')
                       @csrf
                       <button type="submit" class="btn btn-danger btn-sm"
-                    onclick="return confirm('هل انت متاكد من حذف المجموعة?');">
-                      حذف</button>
+                              onclick="return confirm({{ __('message.delete group') }});">
+                            {{ __('main.delete') }}
+                    </button>
                   </form>
                 </td>
             </tr>

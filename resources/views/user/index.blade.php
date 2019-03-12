@@ -1,19 +1,19 @@
 @component('layouts.inc.basic_style')
-  @section('title','المستخدمين  ')
+  @section('title', __('user.title'))
 
   @slot('subject')
-    مستخدمين النظام
-    <a style="float: left;"class="btn btn-success btn-sm" href="{{route('user.create')}}"> إضافة</a>
+    {{ __('user.title')}}
+    <a style="float: left;"class="btn btn-success btn-sm" href="{{route('user.create')}}"> {{ __('main.add')}}</a>
   @endslot
    <div class="table-responsive">
     <table class="table table-bordered">
           <thead>
             <tr >
-              <th >الإسم</th>
-              <th >الإيميل</th>
-              <th >الصلاحيات </th>
-              <th >المجموعات </th>
-              <th  colspan="2">الإجراء</th>
+              <th >{{ __('main.name')}}</th>
+              <th >{{ __('main.email')}}</th>
+              <th >{{ __('main.roles')}} </th>
+              <th >{{ __('main.groups')}} </th>
+              <th  colspan="2">{{ __('main.action')}} </th>
               </tr>
           </thead>
           <tbody>
@@ -26,7 +26,7 @@
                      {{ $loop->first ? '' : ', ' }}
                       {{$role->name}}
                     @empty
-                      لا يوجد
+                     {{ __('message.nothing')}}
                     @endforelse
                   </td>
                   <td >
@@ -34,7 +34,7 @@
                       {{ $loop->first ? '' : ', ' }}
                       {{$group->name }}
                     @empty
-                    لا يوجد
+                     {{ __('message.nothing')}}
                     @endforelse
                   </td>
                   <td>
@@ -42,12 +42,13 @@
                         @method('DELETE')
                         @csrf
                         <button type="submit" class="btn btn-danger btn-sm"
-                      onclick="return confirm('هل انت متاكد من حذف المستخدم ?');">
-                        حذف</button>
+                                onclick="return confirm({{ __('message.delete user')}});">
+                                 {{ __('main.delete')}}
+                      </button>
                     </form>
                   </td>
                   <td>
-                    <a class="btn btn-info btn-sm" href="{{route('user.edit',$user->id)}}"> تعديل</a>
+                    <a class="btn btn-info btn-sm" href="{{route('user.edit',$user->id)}}"> {{ __('main.edit')}}</a>
                   </td>
               </tr>
             @endforeach

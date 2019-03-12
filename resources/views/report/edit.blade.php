@@ -1,7 +1,7 @@
 @component('layouts.inc.basic_style')
   @section('title',$report->name)
   @slot('subject')
-     تعديل التقرير : {{$report->name}}
+    <b>{{__('edit report')}} : </b> {{$report->name}}
   @endslot
   <form action="{{route('report.update',[$report->id])}}" method="post" class="contentForm" enctype="multipart/form-data">
     @csrf
@@ -10,17 +10,17 @@
     <div class="text-right">
       <fieldset class="p-3" >
         <div class="form-group">
-           <legend class ='text-right font-weight-bold'> اسم التقرير :  </legend>
+           <legend class ='text-right font-weight-bold'> {{ __('report.name') }}  </legend>
            <input type='text' name='name' class='form-control' value='{{$report->name}} ' required>
         </div>
         <div class="form-group">
-           <legend class ='text-right font-weight-bold'> الوصف :   </legend>
+           <legend class ='text-right font-weight-bold'> {{ __('report.description') }}   </legend>
            <textarea type='text' name='description' class='form-control' value='{{old('description') }}' required>
               {{$report->description}}
            </textarea>
         </div>
         <div class="form-group">
-            <legend class ='text-right font-weight-bold'> تحميل ملف   : </legend>
+            <legend class ='text-right font-weight-bold'> {{ __('report.upload_files') }} </legend>
             <div class="custom-file">
              <input type="file" name='files[]'  accept="audio/* , image/* "
                     class="custom-file-input" id="inputGroupFile01" multiple>
@@ -29,14 +29,14 @@
         </div>
       </fieldset>
       <fieldset class="border report-detail" >
-        <legend class ='text-right font-weight-bold'> تفاصيل اخرى </legend>
+        <legend class ='text-right font-weight-bold'>{{ __('report.other details') }}</legend>
         <div class="row text-right">
            <div class="col-lg-12">
-             <label class="font-weight-bold">التصنيف: </label>
+             <label class="font-weight-bold"> {{ __('report.tags') }} </label>
              <input type='text' name='tags' class='form-control ' value=' @foreach($report->tags as $tag ) {{$tag->name}}, @endforeach'  required>
           </div>
           <div class="col-lg-12">
-            <label class="font-weight-bold mt-4 ">التقرير تابع للمجموعة : </label>
+            <label class="font-weight-bold mt-4 ">{{ __('report.groups') }} </label>
              @foreach($groups as $group)
                  <div class="btn-group" role="group">
                      <label class="btn btn-default btn-checkbox">
@@ -46,7 +46,7 @@
              @endforeach
           </div>
           <div class="col-lg-12">
-           <label class="font-weight-bold view_files mt-3"> رؤية المرفقات
+           <label class="font-weight-bold view_files mt-3">{{ __('report.attachments') }}
              <i class="fas fa-sort"></i>
            </label>
          </div>
@@ -54,7 +54,7 @@
       </fieldset>
     </div>
     <br/>
-    <button type="submit" class="btn btn-info btn-block" >تعديل التقرير</button>
+    <button type="submit" class="btn btn-info btn-block" >{{ __('main.edit') }} </button>
   </form>
   <br/>
 
@@ -65,10 +65,10 @@
         <table class="table table-hover table-bordered popup" >
           <thead>
             <tr align='center'>
-             <td> اسم الملف</td>
-              <td>نوع الملف</td>
-              <td >تنزيل </td>
-              <td >عرض / تشغيل </td>
+              <td> {{ __('report.file name') }}</td>
+              <td> {{ __('report.file type') }}</td>
+              <td> {{ __('report.download') }} </td>
+              <td> {{ __('report.view or play ') }}</td>
               <td></td>
             </tr>
           </thead>
@@ -108,8 +108,8 @@
                       @method('DELETE')
                       @csrf
                       <button type="submit" class="btn btn-danger btn-block"
-                               onclick="return confirm('هل انت متاكد من حذف الملف?');">
-                                حذف
+                               onclick="return confirm('{{__('message.delete file')}}?');">
+                                {{ __('main.delete')}}
                     </button>
                   </form>
                 @endrole

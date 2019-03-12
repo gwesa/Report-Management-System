@@ -1,9 +1,9 @@
 @component('layouts.inc.basic_style')
-  @section('title','التقارير  ')
+  @section('title',__('report.title') )
   @slot('subject')
-    التقارير
+    {{ __('report.title')}}
   @role(['Admin','Writer'])
-    <a style="float: left;"class="btn btn-success btn-sm" href="{{route('report.create')}}"> إضافة</a>
+    <a style="float: left;"class="btn btn-success btn-sm" href="{{route('report.create')}}"> {{ __('main.add')}}</a>
   @endrole
   @endslot
   @include('layouts.inc.report.reportTable')

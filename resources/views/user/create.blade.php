@@ -1,31 +1,31 @@
 
 @component('layouts.inc.basic_style')
-  @section('title','مستخدم جديد   ')
+  @section('title', __('user.add'))
 
   @slot('subject')
-    إضافة مستخدم جديد
+  {{ __('user.add')}}
   @endslot
 
   <form action="{{route('user.store')}}" method="post" class="contentForm" enctype="multipart/form-data">
       @csrf
     <div class="form-group">
-        <label> اسم المستخدم : </label>
+        <label> {{ __('main.name')}}</label>
         <input type='text' name='name' class='form-control' value='{{old('name') }}' required>
     </div>
     <div class="form-group">
-        <label> الايميل : </label>
+        <label>{{ __('main.email')}} </label>
         <input type='email' name='email' class='form-control' value='{{old('email') }}' required>
     </div>
     <div class="form-group">
-        <label> كلمة االمرور : </label>
+        <label> {{ __('main.pass')}} </label>
         <input type='password' name='password' class='form-control'  required>
     </div>
     <div class="form-group">
-        <label> تاكيد كلمة المرور : </label>
+        <label>  {{ __('main.password confirmation')}}</label>
         <input type='password' name='password_confirmation' class='form-control' required>
     </div>
     <div class="form-group">
-        <label> الصلاحيات   : </label>
+        <label> {{ __('main.roles')}} </label>
           <div class="row">
             <div class="col-md-12">
                 @foreach($roles as $role)
@@ -39,7 +39,7 @@
           </div>
     </div>
     <div class="form-group">
-        <label> المجموعة التابع لها    : </label>
+        <label>{{ __('main.groups')}} </label>
         <div class="row">
           <div class="col-md-12">
               @foreach($groups as $group)
@@ -52,7 +52,7 @@
               </div>
         </div>
     </div>
-      <button class="btn btn-block  btn-success">إضافة</button>
+      <button class="btn btn-block  btn-success">{{ __('main.add')}} </button>
   </form>
 
 @endcomponent

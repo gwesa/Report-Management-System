@@ -1,34 +1,34 @@
 @component('layouts.inc.basic_style')
-  @section('title','تقرير جديد  ')
+  @section('title',  __('report.add_report') )
 
   @slot('subject')
-    إضافة تقرير جديد
+    {{ __('report.add_report') }}
   @endslot
   @if($groups->count() > 0 )
     <form action="{{route('report.store')}}" method="post" class="contentForm" enctype="multipart/form-data">
         @csrf
       <div class="form-group">
-          <label>  اسم التقرير : </label>
+          <label> {{ __('report.name') }} </label>
           <input type='text' name='name' class='form-control' value='{{old('name') }}' required>
       </div>
       <div class="form-group">
-          <label> الوصف : </label>
+          <label> {{ __('report.description') }} </label>
           <textarea type='text' name='description' class='form-control' value='{{old('description') }}' required>
           </textarea>
       </div>
       <div class="form-group">
-          <label> تحميل ملف   : </label>
+          <label> {{ __('report.upload_files') }} </label>
           <div class="custom-file">
            <input type="file" name='files[]'  multiple  class="custom-file-input" id="inputGroupFile01">
            <label class="custom-file-label" for="inputGroupFile01"></label>
          </div>
       </div>
       <div class="form-group">
-          <label> االتصنيف   : </label>
+          <label> {{ __('report.tags') }} </label>
             <input type='text' name='tags' class='form-control' value='{{old('tags') }}'  placeholder=" Technology , Sports , Medical .. etc" required>
       </div>
       <div class="form-group">
-          <label> المجموعة التابع لها    : </label>
+          <label> {{ __('report.groups') }} </label>
           <div class="row">
             <div class="col-md-12">
                 @foreach($groups as $group)
@@ -41,9 +41,9 @@
                 </div>
           </div>
       </div>
-        <button class="btn btn-block  btn-success">إضافة</button>
+        <button class="btn btn-block  btn-success"> {{ __('main.add') }}</button>
     </form>
     @else
-        <h3>يجب إضافة مجموعة واحده على الاقل لإضافة تقرير   </h3>
+        <h3>{{ __('report.add_report_erroe') }}  </h3>
     @endif
   @endcomponent

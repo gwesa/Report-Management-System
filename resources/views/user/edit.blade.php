@@ -3,22 +3,22 @@
   @section('title',' تعديل بيانات مستخدم    ')
 
   @slot('subject')
-  تعديل بيانات المستخدم {{$user->name}}
+  <b> {{ __('user.edit')}}: </b> {{$user->name}}
   @endslot
 
   <form action="{{route('user.update', [$user->id])}}" method="post" class="contentForm" enctype="multipart/form-data">
       @csrf
       @method('PATCH')
     <div class="form-group">
-        <label> اسم المستخدم : </label>
+        <label> {{ __('main.name')}} </label>
         <input type='text' name='name' class='form-control' value='{{$user->name}}' required>
     </div>
     <div class="form-group">
-        <label> الايميل : </label>
+        <label>  {{ __('main.email')}} </label>
         <input type='email' name='email' class='form-control' value='{{$user->email}}' required>
     </div>
     <div class="form-group">
-        <label> الصلاحيات   : </label>
+        <label>  {{ __('main.roles')}}</label>
           <div class="row">
             <div class="col-md-12">
                 @foreach($roles as $role)
@@ -32,7 +32,7 @@
           </div>
     </div>
     <div class="form-group">
-        <label> المجموعة التابع لها    : </label>
+        <label>  {{ __('main.groups')}} </label>
         <div class="row">
           <div class="col-md-12">
               @foreach($groups as $group)
@@ -45,7 +45,7 @@
               </div>
         </div>
     </div>
-      <button class="btn btn-block  btn-success">تعديل </button>
+      <button class="btn btn-block  btn-success"> {{ __('main.edit')}} </button>
   </form>
 
 @endcomponent

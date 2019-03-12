@@ -2,7 +2,7 @@
 @component('layouts.inc.basic_style')
   @section('title',$report->name)
   @slot('subject')
-  التقرير :  {{$report->name}}
+  {{ __('report.report') }}  {{$report->name}}
   @endslot
   <div class="text-right">
     <fieldset class="border" >
@@ -10,16 +10,16 @@
       <p id="innerPara">{{$report->description}}  </p>
     </fieldset>
     <fieldset class="border" >
-      <legend class ='text-right font-weight-bold'> المرفقات </legend>
+      <legend class ='text-right font-weight-bold'>  {{ __('report.attachments') }} </legend>
       @if($report->files->count() > 0)
         <div class="table-responsive ">
           <table class="table table-hover popup" >
             <thead>
               <tr align='center'>
-               <td> اسم الملف</td>
-                <td>نوع الملف</td>
-                <td >تنزيل </td>
-                <td >عرض / تشغيل </td>
+                <td> {{ __('report.file name') }}</td>
+                <td> {{ __('report.file type') }}</td>
+                <td> {{ __('report.download') }} </td>
+                <td> {{ __('report.view or play ') }}</td>
               </tr>
             </thead>
             <tbody>
@@ -55,18 +55,18 @@
       </div>
     </fieldset>
     <fieldset class="border report-detail" >
-      <legend class ='text-right font-weight-bold'> تفاصيل اخرى </legend>
+      <legend class ='text-right font-weight-bold'> {{ __('report.other details') }} </legend>
       <div class="row">
         <div class="col-lg-4">
-          <label class="font-weight-bold">التقرير تابع للمجموعة : </label>
+          <label class="font-weight-bold"> {{ __('report.groups') }} </label>
            {{$report->group->name}}
         </div>
         <div class="col-lg-4">
-          <label class="font-weight-bold ">الكاتب: </label>
+          <label class="font-weight-bold "> {{ __('report.writer') }} </label>
            {{$report->user->name ?? 'deleted'}}
          </div>
          <div class="col-lg-4">
-           <label class="font-weight-bold">التصنيف: </label>
+           <label class="font-weight-bold"> {{ __('report.tags') }} </label>
            @foreach($report->tags as $tag )
            <span>{{$tag->name}}</span>
            @endforeach
@@ -79,8 +79,8 @@
           @method('DELETE')
           @csrf
           <button type="submit" class="btn btn-danger btn-block"
-        onclick="return confirm('هل انت متاكد من حذف التقرير?');">
-          حذف التقرير</button>
+        onclick="return confirm({{__('message.delete report')}});">
+          {{ __('main.delete') }} </button>
       </form>
     @endrole
 
