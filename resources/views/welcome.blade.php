@@ -25,6 +25,11 @@
        </div>
         @guest
            <div class="background-form">
+             <div class="pt-3">
+               <a href="{{ url('lang/en') }}">English</a>
+                &nbsp|&nbsp
+               <a href="{{ url('lang/ar') }}">Arabic </a>
+            </div>
               <div class="form">
                 <h3> تسجيل الدخول </h3>
                  <form method="POST" action="{{ route('login') }}">
