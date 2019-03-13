@@ -8,8 +8,8 @@ use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 class Role extends Model
 {
   use Cachable;
-  
-  protected $fillable = ['name'];
+
+  protected $fillable = ['name','active'];
 
   public function users()
   {
