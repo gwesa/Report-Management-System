@@ -218,6 +218,13 @@ label.font-weight-bold {
     left: 0;
   }
 
+.not-active{
+    text-decoration: line-through;
+  }
+.dis-inline{
+    display: inline;
+  }
+
 
 @media only screen and (max-device-width: 736px) {
 

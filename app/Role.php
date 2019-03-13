@@ -15,4 +15,14 @@ class Role extends Model
   {
      return $this->belongsToMany(User::class,'role_user');
   }
+
+  public function active( $active = true )
+  {
+    $this->update(compact('active'));
+  }
+
+  public function inactive()
+  {
+    $this->active(false);
+  }
 }

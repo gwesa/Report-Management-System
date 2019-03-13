@@ -21,6 +21,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('admin','AdminController')->only(['index','update']);
     Route::resource('group','GroupController')->except('show');
     Route::resource('user','UserController')->except('show');
+    Route::resource('role','RoleController');
   });
   Route::resource('file','FileController')->only(['destroy']);
   Route::get('search', 'SearchController@search')->name('search');
