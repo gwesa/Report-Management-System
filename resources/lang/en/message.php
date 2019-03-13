@@ -2,6 +2,7 @@
 
 return [
   'add_report_erroe' => 'You have to add at least one group to create a report ',
+  'add user erroe' => 'You have to add at least one group to create a user ',
   'delete report' => 'Are you sure you want to delete the report?',
   'delete file' => 'Are you sure you want to delete the file?',
   'delete user' => 'Are you sure you want to remove the user?',

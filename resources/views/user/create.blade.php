@@ -5,7 +5,7 @@
   @slot('subject')
   {{ __('user.add')}}
   @endslot
-
+  @if($groups->count() > 0 )
   <form action="{{route('user.store')}}" method="post" class="contentForm" enctype="multipart/form-data">
       @csrf
     <div class="form-group">
@@ -54,5 +54,8 @@
     </div>
       <button class="btn btn-block  btn-success">{{ __('main.add')}} </button>
   </form>
+  @else 
+  {{ __('message.add user erroe')}}
+  @endif
 
 @endcomponent
