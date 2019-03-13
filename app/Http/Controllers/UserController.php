@@ -19,7 +19,7 @@ class UserController extends Controller
 
     public function create()
     {
-      $roles  = Role::get();
+      $roles  = Role::whereActive(1)->get();
       $groups = Group::get();
       return view('user.create',compact('roles','groups'));
     }
@@ -32,10 +32,10 @@ class UserController extends Controller
       flash_success(\Lang::get('message.success'));
       return back();
     }
-    
+
     public function edit(User $user)
     {
-      $roles  = Role::get();
+      $roles  = Role::whereActive(1)->get();
       $groups = Group::get();
       return view('user.edit',compact('user','roles','groups'));
     }
