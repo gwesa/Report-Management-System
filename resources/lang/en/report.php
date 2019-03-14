@@ -28,4 +28,7 @@ return [
   'add_report'=>'Add report',
   'edit report'=>'Edit report',
   'date' => 'Date',
+  'email file uploaded' => 'file uploaded successfully',
+  'email go to Report' => 'Go to Report',
+  'email files belong' => 'files belong to report'
 ];

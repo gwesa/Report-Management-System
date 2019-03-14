@@ -1,7 +1,7 @@
 @component('layouts.inc.basic_style')
   @section('title',$report->name)
   @slot('subject')
-    <b>{{__('edit report')}} : </b> {{$report->name}}
+    <b>{{__('report.edit report')}} : </b> {{$report->name}}
   @endslot
   <form action="{{route('report.update',[$report->id])}}" method="post" class="contentForm" enctype="multipart/form-data">
     @csrf
@@ -119,6 +119,8 @@
           @endforeach
         </tbody>
       </table>
+      @else
+      <h4> {{ __('message.nothing')}}</h4>
     @endif
     </div>
   </fieldset>

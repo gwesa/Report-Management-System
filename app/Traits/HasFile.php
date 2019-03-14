@@ -15,6 +15,6 @@ trait HasFile {
   public function upload($files,$report)
   {
     UploadFileJob::dispatch($files,$report);
-    return flash_success(\Lang::get('message.success'));
+    return flash_success(\Lang::get('message.upload success'));
   }
 }

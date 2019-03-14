@@ -2,11 +2,11 @@
  <table class="table table-bordered">
    <thead>
      <tr>
-       <th >اسم التقرير</th>
-       <th >المجموعة</th>
-       <th >التصنيف  </th>
-       <th >التاريخ   </th>
-       <th colspan="3"> الإجراء </th>
+       <th >{{ __('report.name')}}</th>
+       <th >{{ __('main.groups')}}</th>
+       <th >{{ __('report.tags')}} </th>
+       <th >{{ __('report.date')}}   </th>
+       <th colspan="3"> {{ __('main.action')}} </th>
      </tr>
    </thead>
  <tbody>
@@ -21,9 +21,9 @@
           @endforeach
         </td>
         <td>{{$report->created_at}}</td>
-        <td><a class="btn btn-success btn-sm" href="{{route('report.show',[$report->id])}}"> عرض</a></td>
+        <td><a class="btn btn-success btn-sm" href="{{route('report.show',[$report->id])}}">{{ __('main.view')}}</a></td>
         @role(['Editor','Admin'])
-         <td><a class="btn btn-info btnc-sm" href="{{route('report.edit',[$report->id])}}">تعديل </a></td>
+         <td><a class="btn btn-info btnc-sm" href="{{route('report.edit',[$report->id])}}">{{ __('main.edit')}} </a></td>
         @endrole
         @role(['Delete','Admin'])
           <td>
@@ -31,8 +31,8 @@
               @method('DELETE')
               @csrf
               <button type="submit" class="btn btn-danger btn-sm"
-                 onclick="return confirm('هل انت متاكد من حذف التقرير ?');">
-                 حذف
+                 onclick="return confirm({{ __('message.delete report')}});">
+                 {{ __('main.delete')}}
               </button>
             </form>
           </td>

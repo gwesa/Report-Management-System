@@ -4,7 +4,7 @@
       <div class="min-title">
          <a href="{{route('reportByGroup',[$group->id])}}"> {{$group->name}} </a>
        </div>
-      <div class="number-report">عدد التقارير {{$group->reports()->count()}}</div>
+      <div class="number-report">{{ __('report.report_number') }}  {{$group->reports()->count()}}</div>
     </div>
   @endforeach
 </div>

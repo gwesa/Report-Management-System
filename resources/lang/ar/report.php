@@ -26,6 +26,9 @@ return [
   'writer'=>'الكاتب',
   'other details'=>' تفاصيل اخرى',
   'add_report'=>'  إضافة تقرير جديد',
-  'edit report'=>'تعديل التقريرر',
+  'edit report'=>'تعديل التقرير',
   'date' => 'التاريخ',
+  'email file uploaded' => 'تم تحميل الملفات بنجاح',
+  'email go to Report' => 'الذهاب لتقرير',
+  'email files belong' => 'تم تحميل الملفات التابعه لتقرير '
 ];

@@ -1,11 +1,10 @@
 @component('mail::message')
-# تم تحميل الملفات بنجاح
+# {{ __('report.email file uploaded')}}
 
-تم تحميل الملفات التابعه لتقرير  : {{$report->name }}
+{{ __('report.email files belong')}} : {{$report->name }}
 @component('mail::button', ['url' => '/report/' . $report->id])
-الذهاب لتقرير
+{{ __('report.email go to Report')}}
 @endcomponent
 
-Thanks,<br>
 {{ config('app.name') }}
 @endcomponent

@@ -19,8 +19,8 @@
       <div class="form-group">
           <label> {{ __('report.upload_files') }} </label>
           <div class="custom-file">
-           <input type="file" name='files[]'  multiple  class="custom-file-input" id="inputGroupFile01">
-           <label class="custom-file-label" for="inputGroupFile01"></label>
+           <input type="file" name='files[]' multiple  class="form-control">
+
          </div>
       </div>
       <div class="form-group">
@@ -44,6 +44,6 @@
         <button class="btn btn-block  btn-success"> {{ __('main.add') }}</button>
     </form>
     @else
-        <h3>{{ __('report.add_report_erroe') }}  </h3>
+        <h3>{{ __('message.add_report_erroe') }}  </h3>
     @endif
   @endcomponent
