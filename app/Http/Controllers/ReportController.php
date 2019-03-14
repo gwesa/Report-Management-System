@@ -39,7 +39,7 @@ class ReportController extends Controller
 
     public function create()
     {
-      $groups = Group::get();
+      $groups = Auth::user()->userGroups();
       return view('report.create',compact('groups'));
     }
 
