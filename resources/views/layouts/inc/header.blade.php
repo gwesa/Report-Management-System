@@ -14,9 +14,9 @@
                     @role(['Admin'])
                       <li class="nav-item"><a class="nav-link" href="{{route('user.index')}}"> {{ __('main.users') }} </a></li>
                       <li class="nav-item"><a class="nav-link" href="{{route('group.index')}}">{{ __('main.groups') }} </a></li>
-                      <li class="nav-item"><a class="nav-link" href="{{route('admin.index')}}">{{ __('main.profile') }} </a></li>
                       <li class="nav-item"><a class="nav-link" href="{{route('role.index')}}">{{ __('main.roles') }} </a></li>
                     @endrole
+                    <li class="nav-item"><a class="nav-link" href="{{route('profile.index')}}">{{ __('main.profile') }} </a></li>
                       <li class="nav-item"><a class="nav-link" href="{{route('report.index')}}">{{ __('main.reports') }}  </a></li>
                       <li class="nav-item">
                         <a href="{{ route('logout') }}" class="nav-link"

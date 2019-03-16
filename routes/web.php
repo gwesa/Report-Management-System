@@ -18,7 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 Route::group(['middleware' => 'auth'], function() {
   Route::group(['middleware' => 'role:Admin'], function() {
-    Route::resource('admin','AdminController')->only(['index','update']);
     Route::resource('group','GroupController')->except('show');
     Route::resource('user','UserController')->except('show');
     Route::resource('role','RoleController');
@@ -26,6 +25,8 @@ Route::group(['middleware' => 'auth'], function() {
   Route::resource('file','FileController')->only(['destroy']);
   Route::get('search', 'SearchController@search')->name('search');
   Route::get('/home', 'HomeController@index')->name('home');
+  Route::get('profile','ProfileController@index')->name('profile.index');
+  Route::PATCH('profile/{user}','ProfileController@update')->name('profile.update');
   Route::resource('report','ReportController');
   Route::get('list/reports','ReportController@list_reports');
   Route::prefix('report')->group(function(){

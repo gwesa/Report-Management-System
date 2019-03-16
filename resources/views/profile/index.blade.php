@@ -4,8 +4,8 @@
   @slot('subject')
    {{ __('main.edit')}}
   @endslot
-    <form action="{{route('admin.update',[ Auth::user()->id ])}}" method="post">
-        {{ csrf_field() }}
+    <form action="{{route('profile.update',[ Auth::user()->id ])}}" method="post">
+        @csrf
         @method('PATCH')
         <div class="form-group">
           <label for="usr">{{ __('main.email')}} </label>
