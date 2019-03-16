@@ -23,3 +23,23 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
     ];
 });
+
+$factory->define(App\Role::class, function (Faker $faker) {
+    return [
+        'active' => 1,
+        'name'=>$faker->randomElement(['Editor','Writer','Viewer','Delete'])
+    ];
+});
+
+$factory->define(App\Group::class, function (Faker $faker) {
+    return [
+        'name' => $faker->name,
+    ];
+});
+
+$factory->define(App\Report::class, function (Faker $faker) {
+    return [
+      'name' => $faker->name,
+      'description'=> $faker->sentence,
+    ];
+});
