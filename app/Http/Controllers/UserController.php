@@ -44,6 +44,7 @@ class UserController extends Controller
     {
       $user->update(request(['name','email']));
       $user->syncRoles(request('roles'));
+      $user->syncGroups(request('groups'));
       flash_success(\Lang::get('message.success'));
       return back();
     }
