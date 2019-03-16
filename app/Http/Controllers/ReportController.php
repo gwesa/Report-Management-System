@@ -54,7 +54,7 @@ class ReportController extends Controller
 
     public function show(Report $report)
     {
-      $this->authorize('view',$report);
+      $this->authorize('view',$report->load('files','tags'));
       return view('report.show',compact('report'));
     }
 
