@@ -29,6 +29,7 @@ return [
   'edit report'=>'Edit report',
   'date' => 'Date',
   'email file uploaded' => 'file uploaded successfully',
+  'email upload failed' => 'Files upload failed, please try again.',
   'email go to Report' => 'Go to Report',
   'email files belong' => 'files belong to report'
 ];

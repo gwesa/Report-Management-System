@@ -29,6 +29,7 @@ return [
   'edit report'=>'تعديل التقرير',
   'date' => 'التاريخ',
   'email file uploaded' => 'تم تحميل الملفات بنجاح',
+  'email upload failed' => 'فشل تحميل الملفات، يجى المحاولة مرة اخرى ',
   'email go to Report' => 'الذهاب لتقرير',
-  'email files belong' => 'تم تحميل الملفات التابعه لتقرير '
+  'email files belong' =>'الملفات تابعه لتقرير'
 ];
