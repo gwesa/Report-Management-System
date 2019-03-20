@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 
 use App\Events\FilesUploadedEvent;
+use App\Events\FilesUploadFailedEvent;
 use App\Traits\UploadFileTrait;
 use App\Report;
 use Storage;
@@ -44,4 +45,9 @@ class UploadFileJob implements ShouldQueue
       }
       event( new FilesUploadedEvent($this->report));
     }
+
+    public function failed()
+   {
+      event(new FilesUploadFailedEvent($this->report));
+   }
 }
