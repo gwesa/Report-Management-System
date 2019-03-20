@@ -7,6 +7,8 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use App\Listeners\SendFilesUploadedNotification;
 use App\Events\FilesUploadedEvent;
+use App\Events\FilesUploadFailedEvent;
+use App\Listeners\SendFilesUploadFailedNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider
@@ -24,6 +26,10 @@ class EventServiceProvider extends ServiceProvider
         FilesUploadedEvent::class => [
           SendFilesUploadedNotification::class,
        ],
+
+       FilesUploadFailedEvent::class => [
+         SendFilesUploadFailedNotification::class,
+      ],
     ];
 
     /**
