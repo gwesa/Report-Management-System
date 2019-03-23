@@ -12,6 +12,7 @@ class FilesUploadedEvent
 
 
     public $report;
+    public $email;
 
 
     /**
@@ -19,9 +20,10 @@ class FilesUploadedEvent
      *
      * @return void
      */
-    public function __construct($report)
+    public function __construct($report,$email)
     {
         $this->report = $report;
+        $this->email  = $email;
     }
 
 }

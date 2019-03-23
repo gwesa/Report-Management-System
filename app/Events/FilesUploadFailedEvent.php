@@ -14,13 +14,17 @@ class FilesUploadFailedEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $report;
+    public $email;
+
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($report)
+    public function __construct($report,$email)
     {
       $this->report = $report;
+      $this->email  = $email;
     }
 }

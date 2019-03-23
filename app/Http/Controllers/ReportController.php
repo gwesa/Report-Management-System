@@ -47,7 +47,8 @@ class ReportController extends Controller
     public function store(ReportRequest $request)
     {
        $report =  Auth::user()->cresteReport();
-       $this->uploadFiles($request,$report);
+       $email  = Auth::user()->email;
+       $this->uploadFiles($request,$report,$email);
        return redirect('report/'.$report->id);
     }
 
@@ -74,7 +75,8 @@ class ReportController extends Controller
     public function update(ReportRequest $request, Report $report)
     {
       $report->updateReport();
-      $this->uploadFiles($request,$report);
+      $email  = Auth::user()->email;
+      $this->uploadFiles($request,$report,$email);
       return back();
     }
 

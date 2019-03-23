@@ -28,7 +28,7 @@ class SendFilesUploadedNotification
      */
     public function handle(FilesUploadedEvent $event)
     {
-      Mail::to($event->report->user->email)->send(
+      Mail::to($event->email)->send(
         new FilesUploaded($event->report)
       );
     }

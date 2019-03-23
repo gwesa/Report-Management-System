@@ -28,7 +28,7 @@ class SendFilesUploadFailedNotification
      */
     public function handle(FilesUploadFailedEvent $event)
     {
-      Mail::to($event->report->user->email)->send(
+      Mail::to($event->email)->send(
         new UploadFailed($event->report)
       );
     }

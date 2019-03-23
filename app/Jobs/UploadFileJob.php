@@ -18,6 +18,8 @@ class UploadFileJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels ,UploadFileTrait;
 
+    protected $email;
+
     /**
      * Create a new job instance.
      *
@@ -25,9 +27,10 @@ class UploadFileJob implements ShouldQueue
      */
 
 
-    public function __construct($files, $report)
+    public function __construct($files, $report,$email)
     {
         $this->report = $report;
+        $this->email  = $email;
         $this->files  = $this->processFile($files);
     }
 
@@ -43,11 +46,11 @@ class UploadFileJob implements ShouldQueue
         Storage::disk('s3')->put($file['path'],base64_decode($file['file']));
         $createFile = $this->report->createFile($file['name'],$file['type'],$file['path']);
       }
-      event( new FilesUploadedEvent($this->report));
+      event( new FilesUploadedEvent($this->report,$this->email));
     }
 
     public function failed()
    {
-      event(new FilesUploadFailedEvent($this->report));
+      event(new FilesUploadFailedEvent($this->report,$this->email));
    }
 }
