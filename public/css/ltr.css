@@ -65,3 +65,14 @@ html[dir='ltr'] .text-md-right {
 html[dir='ltr'] .text-right{
   text-align: left!important;
 }
+@media only screen and (max-device-width: 736px) {
+
+  html[dir="ltr"] .bg-hehader h3 {
+    font-size: 42px!important;
+    left: 2%!important;
+  }
+
+  html[dir="ltr"] .mr-auto, .mx-auto {
+    text-align: left!important;
+  }
+}

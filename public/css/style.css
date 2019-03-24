@@ -19,6 +19,9 @@ body{
   font-size: 3em;
 
 }
+.color-368ACC {
+  color: white;
+ }
 .bg-welcome
 {
   background-image:url("../images/bg.jpg");
@@ -250,4 +253,21 @@ label.font-weight-bold {
   .py-4 {
     margin-top: 22%;
     }
+  .color-368ACC {
+    color: white;
+   }
+  .form {
+    padding-top: 74%!important;
+  }
+
+  legend {
+      font-size: 17px!important;
+    }
+    body{
+      font-size: 12px!important;
+    }
+  .mr-auto, .mx-auto {
+    text-align: right;
+  }
+
 }
