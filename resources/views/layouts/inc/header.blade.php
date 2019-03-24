@@ -8,7 +8,7 @@
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="collapse navbar-collapse col-lg-8 " >
+              <div id="navbar1" class="collapse navbar-collapse col-lg-8 ">
                   <ul class="navbar-nav mr-auto " >
                       <li class="nav-item"><a class="nav-link" href="{{route('home')}}">{{ __('main.home') }} </a></li>
                     @role(['Admin'])
