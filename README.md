@@ -40,7 +40,7 @@ php artisan migrate --seed
 8. Visit http://localhost:8080/Report-Management-System  in your browser. (you will see this page) 
 <img width="1591" alt="Screen Shot 1440-07-19 at 11 16 23 AM" src="https://user-images.githubusercontent.com/31994505/55016606-299eb600-5000-11e9-8ad7-6260d2aa3216.png">
 
-9. Enter email name and password : 
+9. Enter email and password : 
 ```
 Email : report-system@admin.com 
 Password : 123456
